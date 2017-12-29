@@ -4,7 +4,7 @@
 # 
 # What is needed? brainstorming
 
-Read first - to get the right mind set (German):http://www.google.ch/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwj77ZnzuYnYAhVDyqQKHf-jC2QQFgg1MAE&url=http%3A%2F%2Fwww.bfe.admin.ch%2Fphp%2Fmodules%2Fpublikationen%2Fstream.php%3Fextlang%3Dde%26name%3Dde_512886920.pdf&usg=AOvVaw1JI_7GOP2WQnTsSbrSDFgh
+Read first - to get the right mind set (German): http://www.bfe.admin.ch/php/modules/publikationen/stream.php?extlang=de&name=de_512886920.pdf&usg=AOvVaw1JI_7GOP2WQnTsSbrSDFgh
 
 We want to reduce the cost for the BMS or have a bigger System.
 
