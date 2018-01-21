@@ -1,11 +1,27 @@
 Abbreviations list used and possible explained
 
-BMS Battery Management System
+BMS - Battery Management System
 
-SoC State of charge
-SoH State of health
-SoF State of function
+SoC - State of charge
+SoH - State of health
+SoF - State of function
 
-SMBus System Management Bus
-CAN Controller Area Network
-LIN Local Interconnect Network
+RC  - Rated Capacity, Capacity of new Battery or Empty portion + stored Energy + inactive 
+      Battery consists of: empty portion that can be recharged, the stored energy and
+      the inactive portion that is permanently lost due to aging.
+
+SMBus - System Management Bus
+CAN - Controller Area Network
+LIN - Local Interconnect Network
+
+EBM - electronic battery monitor - measuring voltage, current and temperature to estimate state-of-charge and detect anomalies. 
+      e.g: in a small housing forming part of the positive battery clamp.
+
+Solar
+FCVT - full-charge voltage thresholds
+MPPT - maximum power point tracking (solar cell at varying sunlight)
+P&O - perturb and observe -  can be sluggish and result in oscillations -  
+CS - Current sweep is a method that observes the current and voltage characteristics of the PV array to calculate
+      the maximum power point.
+
+
