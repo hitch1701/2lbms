@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>2LBMS — Retro BMS Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="crt">
+    <header>
+      <h1>2LBMS Simulator — Retro Mode</h1>
+      <div id="level">Level: <span id="level-num">1</span> / 5</div>
+    </header>
+
+    <main>
+      <section id="controls">
+        <div class="control">
+          <label>Charge Current (A)</label>
+          <input id="chargeCurrent" type="range" min="0" max="50" value="10">
+          <output id="chargeCurrentVal">10</output>
+        </div>
+
+        <div class="control">
+          <label>Balance Threshold (V)</label>
+          <input id="balanceThreshold" type="range" min="0.02" max="0.25" step="0.01" value="0.05">
+          <output id="balanceThresholdVal">0.05</output>
+        </div>
+
+        <div class="control">
+          <label>Over-voltage Cutoff (V)</label>
+          <input id="ovCutoff" type="range" min="3.9" max="4.4" step="0.01" value="4.20">
+          <output id="ovCutoffVal">4.20</output>
+        </div>
+
+        <div class="control">
+          <label>Under-voltage Cutoff (V)</label>
+          <input id="uvCutoff" type="range" min="2.6" max="3.6" step="0.01" value="3.00">
+          <output id="uvCutoffVal">3.00</output>
+        </div>
+
+        <div class="control">
+          <label>Temp Limit (°C)</label>
+          <input id="tempLimit" type="range" min="20" max="100" value="60">
+          <output id="tempLimitVal">60</output>
+        </div>
+
+        <div class="buttons">
+          <button id="startBtn">START</button>
+          <button id="nextLevelBtn">NEXT LEVEL</button>
+          <button id="tutorialBtn">TUTORIAL</button>
+          <button id="soundToggle">SOUND: ON</button>
+        </div>
+
+        <div class="hint">
+          <strong>Objective:</strong> Tune the BMS so cells charge and discharge safely. Avoid OV (>4.30 V) and over-temp.
+        </div>
+      </section>
+
+      <section id="playfield">
+        <div id="battery">
+          <div id="cells"></div>
+          <div id="packBar"><div id="packFill"></div></div>
+        </div>
+
+        <div id="telemetry">
+          <pre id="log">Retro BMS Console
+Adjust controls and press START.
+</pre>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <small>1990s style educational game — avoid explosions!</small>
+    </footer>
+
+  </div>
+
+  <!-- Tutorial overlay -->
+  <div id="tutorialOverlay" class="hidden" aria-hidden="true">
+    <div class="tutorialBox">
+      <h2>Tutorial — How the BMS Game Works</h2>
+      <ol id="tutorialSteps">
+        <li data-target="chargeCurrent">Charge Current: Controls how fast the pack charges. Higher current => faster charge, more heat.</li>
+        <li data-target="balanceThreshold">Balance Threshold: When the difference between the highest cell and pack average exceeds this, balancing activates.</li>
+        <li data-target="ovCutoff">OV Cutoff: If any cell reaches this voltage, BMS stops charging. Setting it too high is dangerous.</li>
+        <li data-target="uvCutoff">UV Cutoff: If any cell drops below this, the pack is under-voltage and the level fails.</li>
+        <li data-target="tempLimit">Temp Limit: If cell temperature reaches this, BMS stops charging. Setting it high risks overheating.</li>
+        <li>Press START (or space) to run a charge/discharge cycle. If settings are safe, the level succeeds; if not, the pack may explode.</li>
+      </ol>
+
+      <div class="tutorialControls">
+        <button id="tutorialPrev">‹ Prev</button>
+        <button id="tutorialNext">Next ›</button>
+        <button id="tutorialClose">Close</button>
+      </div>
+
+      <div class="tutorialHint">Hint: Start with moderate current, conservative OV cutoff (~4.2 V), and a small balance threshold.</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

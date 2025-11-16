@@ -1,0 +1,63 @@
+/* Retro 90s CRT look */
+:root{
+  --bg:#07120a;
+  --fg:#7CFF7C;
+  --accent:#00F0FF;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family: 'Courier New', monospace;background:linear-gradient(180deg,#020b02,#07120a);color:var(--fg)}
+#crt{max-width:1000px;margin:20px auto;padding:18px;border:4px solid #083;box-shadow:0 0 40px rgba(0,255,0,0.08);background:rgba(0,0,0,0.25);position:relative}
+header{display:flex;justify-content:space-between;align-items:center}
+h1{font-size:20px;margin:0;color:var(--accent);text-shadow:0 0 8px rgba(0,255,255,0.2)}
+main{display:flex;gap:16px;margin-top:12px}
+#controls{width:320px;padding:12px;border-right:1px dashed rgba(255,255,255,0.05)}
+.control{margin-bottom:12px}
+.control label{display:block;font-size:12px;color:#b8fbb8}
+input[type=range]{width:100%}
+output{display:inline-block;width:60px;text-align:right;color:var(--fg)}
+.buttons{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+button{background:#072;border:2px solid #08a;padding:8px 12px;color:#001;font-weight:700;cursor:pointer}
+button#startBtn{background:#ff5a5a;color:#200;border-color:#ff9}
+button#tutorialBtn{background:#084;color:#bff;border-color:#0ff}
+button#soundToggle{background:#444;color:#cfc;border-color:#6f6}
+button:active{transform:translateY(1px)}
+#playfield{flex:1;padding:12px}
+#battery{display:flex;flex-direction:column;gap:12px}
+#cells{display:flex;gap:6px;align-items:flex-end;height:140px}
+.cell{width:48px;height:120px;border:2px solid #0f4;background:linear-gradient(#033,#021);position:relative;display:flex;align-items:flex-end;padding:4px}
+.cell .level{background:linear-gradient(#7CFF7C,#0a6);width:100%;transition:height 300ms}
+.cell .label{position:absolute;top:6px;left:6px;font-size:11px;color:#9ff}
+.cell .vlabel{position:absolute;bottom:6px;left:6px;font-size:11px;color:#001;background:rgba(255,255,255,0.2);padding:1px 4px;border-radius:3px}
+#packBar{width:100%;height:18px;border:2px solid #0f4;background:#001}
+#packFill{height:100%;width:0%;background:linear-gradient(90deg,#7CFF7C,#00F0FF);transition:width 300ms}
+#telemetry{margin-top:8px}
+#log{height:180px;overflow:auto;background:rgba(0,0,0,0.6);padding:8px;border:1px solid rgba(255,255,255,0.03);color:#baffba}
+footer{margin-top:12px;color:#74ff74}
+/* scanlines */
+#crt:after{content:"";pointer-events:none;position:absolute;left:0;right:0;top:0;bottom:0;background-image:linear-gradient(rgba(0,0,0,0.06) 50%, rgba(0,0,0,0) 50%);background-size:100% 4px;mix-blend-mode:overlay}
+
+/* explosion animation */
+.explode { animation:shake 0.8s ease-in-out; }
+@keyframes shake {
+  0%{transform:translate(0,0) scale(1)}
+  20%{transform:translate(-8px,6px) scale(1.02)}
+  40%{transform:translate(8px,-6px) scale(1.04)}
+  60%{transform:translate(-6px,4px) scale(1.06)}
+  80%{transform:translate(6px,-4px) scale(1.02)}
+  100%{transform:translate(0,0) scale(1)}
+}
+
+/* tutorial overlay */
+#tutorialOverlay{position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:50}
+#tutorialOverlay.hidden{display:none}
+.tutorialBox{background:#021a0e;border:2px solid #0f4;padding:18px;width:640px;color:#c8ffc8;box-shadow:0 0 40px rgba(0,255,0,0.06)}
+.tutorialBox h2{margin-top:0;color:var(--accent)}
+.tutorialBox ol{padding-left:18px}
+.tutorialControls{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+.tutorialHint{margin-top:10px;font-size:13px;color:#aef0ae}
+
+/* highlight */
+.highlight { box-shadow: 0 0 16px #00ffcc inset; border-color:#0ff !important; }
+
+/* responsive */
+@media(max-width:800px){main{flex-direction:column}#controls{width:100%;border-right:none;border-bottom:1px dashed rgba(255,255,255,0.05)}}
